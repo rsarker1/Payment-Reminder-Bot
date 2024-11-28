@@ -1,13 +1,17 @@
 import 'dotenv/config'
-import { Client, GatewayIntentBits } from 'discord.js'
+import 'path'
+import 'fs'
+import { Client, Collection, GatewayIntentBits } from 'discord.js'
+import { Command } from './commands/command'
+import { Bot } from './bot'
 
-
-const client = new Client({
+let client: Client = new Client({
   intents: [GatewayIntentBits.Guilds],
 })
 
-client.on('ready', (b) => {
-  console.log(`${b.user.displayName} is online.`)
-})
+let commands: Command[] = [
+  
+]
 
-client.login(process.env.TOKEN)
+let bot = new Bot(process.env.TOKEN!, client)
+bot.start()
