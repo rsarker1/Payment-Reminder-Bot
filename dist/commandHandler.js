@@ -12,7 +12,7 @@ class CommandHandler {
             return;
         let found = [...this.commands];
         let command;
-        found.filter((com) => com.name === intr.commandName);
+        found.filter((com) => com.data.name === intr.commandName);
         if (found.length === 0) {
             console.log('Error: Cannot find command');
             return;

@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const command_1 = require("./command");
+const discord_js_1 = require("discord.js");
 class addUser {
-    name = 'addUser';
-    comType = command_1.CommandType.HIDDEN;
+    data = new discord_js_1.SlashCommandBuilder().setName('add').setDescription('test');
     async execute(intr) {
         await intr.reply('Test');
     }
