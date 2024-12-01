@@ -13,25 +13,22 @@ async function start() {
     intents: [GatewayIntentBits.Guilds],
   })
   const commands: Command[] = [new addUser()]
-  
   const commandHandler = new CommandHandler(commands)
-  
   const bot = new Bot(process.env.TOKEN!, client, commandHandler)
   
   if (process.argv[2] == 'register') {
     try {
       const rest = new REST().setToken(process.env.TOKEN!)
       let commandData = commands.map(({ data }) => data.toJSON())
-      console.log(commandData)
   
-      const data = await rest.put(Routes.applicationCommands(process.env.ID!), {
+      await rest.put(Routes.applicationCommands(process.env.ID!), {
         body: commandData,
       })
       console.log('Success')
     } catch (error) {
       console.log('Error: Could not register commands')
-      console.log(error)
     }
+    process.exit()
   }
   await bot.start()
 }
