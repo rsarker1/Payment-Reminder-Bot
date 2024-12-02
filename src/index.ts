@@ -1,10 +1,10 @@
 import 'dotenv/config'
 import 'path'
 import 'fs'
-import { Client, Collection, GatewayIntentBits, REST, Routes } from 'discord.js'
+import { Client, GatewayIntentBits, REST, Routes } from 'discord.js'
 import { Command } from './commands/command'
 import { Bot } from './bot'
-import addUser from './commands/addUser'
+import { addUser } from './commands'
 import { CommandHandler } from './commandHandler'
 
 

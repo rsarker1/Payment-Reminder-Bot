@@ -18,16 +18,15 @@ async function start() {
         try {
             const rest = new discord_js_1.REST().setToken(process.env.TOKEN);
             let commandData = commands.map(({ data }) => data.toJSON());
-            console.log(commandData);
-            const data = await rest.put(discord_js_1.Routes.applicationCommands(process.env.ID), {
+            await rest.put(discord_js_1.Routes.applicationCommands(process.env.ID), {
                 body: commandData,
             });
             console.log('Success');
         }
         catch (error) {
             console.log('Error: Could not register commands');
-            console.log(error);
         }
+        process.exit();
     }
     await bot.start();
 }

@@ -24,3 +24,16 @@ class CommandHandler {
     }
 }
 exports.CommandHandler = CommandHandler;
+// addClientEventHandlers() {
+//     // ... existing code
+//     this.client.on(Events.InteractionCreate, (interaction) => {
+//       this.interactionHandler.handleInteraction(
+//         interaction as ChatInputCommandInteraction
+//       );
+//     });
+//     getSlashCommands() {
+//         return this.commands.map((command: Command) =>
+//           command.slashCommandConfig.toJSON()
+//         );
+//       }
+//     }
