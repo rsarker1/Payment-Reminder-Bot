@@ -7,16 +7,21 @@ export class change implements Command {
   data = new SlashCommandBuilder()
     .setName(this.name) 
     .setDescription(this.desc)
-    .addUserOption(option =>
-			option
-				.setName('target')
-				.setDescription('The member to update')
-				.setRequired(true))
-    // .addSubcommand(subcommand =>
-    //   subcommand
-    //     .setName('user')
-    //     .setDescription('User')
-    //     .addUserOption(option => option.setName('target').setDescription('The user')))
+    .addSubcommandGroup(subcommandGroup =>
+      subcommandGroup
+        .setName('options')
+        .setDescription('The values to change')
+        .addSubcommand(subcommand => subcommand
+          .setName('user')
+          .setDescription('The targeted user')
+          .addUserOption(option => 
+            option
+              .setName('target')
+              .setDescription('Test')
+              .setRequired(true)
+          )
+        )
+    )
   public async execute(intr: ChatInputCommandInteraction): Promise<void> {
     //let user = intr.options.getSubcommand()
     await intr.reply('Test')

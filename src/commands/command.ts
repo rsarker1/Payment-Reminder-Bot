@@ -1,9 +1,11 @@
 import { CommandInteraction, SlashCommandBuilder, SlashCommandOptionsOnlyBuilder, SlashCommandSubcommandBuilder,  } from 'discord.js';
 
+type CustomCommand = SlashCommandBuilder & SlashCommandSubcommandBuilder & SlashCommandOptionsOnlyBuilder
+
 export interface Command {
     name: string,
     desc: string,
-    data: SlashCommandBuilder | SlashCommandSubcommandBuilder | SlashCommandOptionsOnlyBuilder , 
+    data: any , 
     execute(intr: CommandInteraction): Promise<void>
 }
 

@@ -12,11 +12,11 @@ export class addUser implements Command {
 				.setName('target')
 				.setDescription('The member to add')
 				.setRequired(true))
-    // .addSubcommand(subcommand =>
-    //   subcommand
-    //     .setName('user')
-    //     .setDescription('User')
-    //     .addUserOption(option => option.setName('target').setDescription('The user')))
+    .addIntegerOption(option => 
+      option
+        .setName('initial-amount')
+        .setDescription('The initial amount owed')
+    )
   public async execute(intr: ChatInputCommandInteraction): Promise<void> {
     //let user = intr.options.getSubcommand()
     await intr.reply('Test')

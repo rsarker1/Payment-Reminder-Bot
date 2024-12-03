@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.addUser = void 0;
 const discord_js_1 = require("discord.js");
 class addUser {
     name = 'add';
@@ -9,8 +10,11 @@ class addUser {
         .setDescription(this.desc)
         .addUserOption(option => option
         .setName('target')
-        .setDescription('The member to ban')
-        .setRequired(true));
+        .setDescription('The member to add')
+        .setRequired(true))
+        .addIntegerOption(option => option
+        .setName('initial-amount')
+        .setDescription('The initial amount owed'));
     // .addSubcommand(subcommand =>
     //   subcommand
     //     .setName('user')
@@ -21,4 +25,4 @@ class addUser {
         await intr.reply('Test');
     }
 }
-exports.default = addUser;
+exports.addUser = addUser;
