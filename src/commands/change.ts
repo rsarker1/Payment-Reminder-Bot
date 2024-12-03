@@ -1,16 +1,16 @@
 import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js'
 import { Command, CommandType } from './command'
 
-export class addUser implements Command {
-  name = 'add'
-  desc = 'Adds specified user to reminder list with options to choose values'
+export class change implements Command {
+  name = 'change'
+  desc = 'Change specified value for given user'
   data = new SlashCommandBuilder()
     .setName(this.name) 
     .setDescription(this.desc)
     .addUserOption(option =>
 			option
 				.setName('target')
-				.setDescription('The member to add')
+				.setDescription('The member to update')
 				.setRequired(true))
     // .addSubcommand(subcommand =>
     //   subcommand
