@@ -4,7 +4,7 @@ import 'fs'
 import { Client, GatewayIntentBits, REST, Routes } from 'discord.js'
 import { Command } from './commands/command'
 import { Bot } from './bot'
-import { addUser } from './commands'
+import { addUser, change } from './commands'
 import { CommandHandler } from './commandHandler'
 
 
@@ -12,7 +12,10 @@ async function start() {
   const client: Client = new Client({
     intents: [GatewayIntentBits.Guilds],
   })
-  const commands: Command[] = [new addUser()]
+  const commands: Command[] = [
+    new addUser(),
+    new change()
+  ]
   const commandHandler = new CommandHandler(commands)
   const bot = new Bot(process.env.TOKEN!, client, commandHandler)
   
@@ -32,6 +35,5 @@ async function start() {
   }
   await bot.start()
 }
-
 
 start()

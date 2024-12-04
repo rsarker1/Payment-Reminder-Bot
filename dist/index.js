@@ -11,7 +11,10 @@ async function start() {
     const client = new discord_js_1.Client({
         intents: [discord_js_1.GatewayIntentBits.Guilds],
     });
-    const commands = [new commands_1.addUser()];
+    const commands = [
+        new commands_1.addUser(),
+        new commands_1.change()
+    ];
     const commandHandler = new commandHandler_1.CommandHandler(commands);
     const bot = new bot_1.Bot(process.env.TOKEN, client, commandHandler);
     if (process.argv[2] == 'register') {

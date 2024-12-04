@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addUser = void 0;
+exports.delUser = void 0;
 const discord_js_1 = require("discord.js");
-class addUser {
+class delUser {
     name = 'add';
     desc = 'Adds specified user to reminder list with options to choose values';
     data = new discord_js_1.SlashCommandBuilder()
@@ -20,4 +20,4 @@ class addUser {
         await intr.reply('Test');
     }
 }
-exports.addUser = addUser;
+exports.delUser = delUser;
