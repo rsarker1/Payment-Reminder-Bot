@@ -3,8 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.delUser = void 0;
 const discord_js_1 = require("discord.js");
 class delUser {
-    name = 'add';
-    desc = 'Adds specified user to reminder list with options to choose values';
+    name = 'del';
+    desc = 'Removes specified user from list';
     data = new discord_js_1.SlashCommandBuilder()
         .setName(this.name)
         .setDescription(this.desc)

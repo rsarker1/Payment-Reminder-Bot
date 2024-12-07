@@ -13,7 +13,8 @@ async function start() {
     });
     const commands = [
         new commands_1.addUser(),
-        new commands_1.change()
+        new commands_1.delUser(),
+        new commands_1.change(),
     ];
     const commandHandler = new commandHandler_1.CommandHandler(commands);
     const bot = new bot_1.Bot(process.env.TOKEN, client, commandHandler);
