@@ -14,7 +14,6 @@ export class Bot {
       console.log(`${b.user.displayName} is online.`)
     })
   }
-  // Just need a chat text listener
   private registerListeners(): void {
     this.client.on(Events.InteractionCreate, (intr: Interaction) =>
       this.onInteraction(intr)

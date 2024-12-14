@@ -40,10 +40,10 @@ export class addUser implements Command {
         .setRequired(true)
     )
   public async execute(intr: ChatInputCommandInteraction): Promise<void> {
-    //let user = intr.options.getSubcommand()
+    // let user = intr.options.getUser('target')
+    // let initAmt = intr.options.getUser('init-amount')
+    // console.log(user)
     await intr.reply('Test')
-    // console.log(__dirname)
-    // db.exec(readFileSync(__dirname + '/sql/populate.sql').toString())
   }
 }
 

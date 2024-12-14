@@ -7,8 +7,6 @@ const discord_js_1 = require("discord.js");
 const bot_1 = require("./bot");
 const commands_1 = require("./commands");
 const commandHandler_1 = require("./commandHandler");
-const fs_1 = require("fs");
-const db_1 = require("./db");
 async function start() {
     const client = new discord_js_1.Client({
         intents: [discord_js_1.GatewayIntentBits.Guilds],
@@ -36,12 +34,4 @@ async function start() {
     }
     await bot.start();
 }
-// start()
-const query = (0, fs_1.readFileSync)('./src/sql/populate.sql').toString();
-db_1.db.run(query, (err) => {
-    if (err) {
-        console.log(err);
-        console.log('Error: Could not run query');
-    }
-});
-db_1.db.exec(`DELETE FROM users`);
+start();

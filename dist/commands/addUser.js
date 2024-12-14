@@ -29,10 +29,10 @@ class addUser {
         .setDescription('The frequency in # of months to send the message')
         .setRequired(true));
     async execute(intr) {
-        //let user = intr.options.getSubcommand()
+        let user = intr.options.getUser('target');
+        let initAmt = intr.options.getUser('init-amount');
+        console.log(user);
         await intr.reply('Test');
-        // console.log(__dirname)
-        // db.exec(readFileSync(__dirname + '/sql/populate.sql').toString())
     }
 }
 exports.addUser = addUser;

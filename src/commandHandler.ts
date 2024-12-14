@@ -8,8 +8,8 @@ export class CommandHandler {
     if (intr.user.id === intr.client.user?.id || intr.user.bot) return
 
     let found = [...this.commands]
-    let command: Command
-    found.filter((com) => com.data.name === intr.commandName)
+    let command: Command 
+    found = found.filter((com) => com.data.name === intr.commandName)
     if (found.length === 0) {
       console.log('Error: Cannot find command')
       return
