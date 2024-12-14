@@ -3,6 +3,6 @@ CREATE TABLE IF NOT EXISTS users (
     username VARCHAR(32) NOT NULL,
     init_amount REAL DEFAULT 0.0,
     rate REAL DEFAULT 0.0,
-    msg_date TEXT DEFAULT date(YYYY-MM-DD),
+    msg_date TEXT DEFAULT (DATE('now')),
     frequency INTEGER DEFAULT 1
 )

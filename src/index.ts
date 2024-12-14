@@ -7,7 +7,6 @@ import { Bot } from './bot'
 import { addUser, change, delUser } from './commands'
 import { CommandHandler } from './commandHandler'
 
-
 async function start() {
   const client: Client = new Client({
     intents: [GatewayIntentBits.Guilds],
@@ -38,3 +37,4 @@ async function start() {
 }
 
 start()
+

@@ -2,8 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.addUser = void 0;
 const discord_js_1 = require("discord.js");
-const db_1 = require("../db");
-const fs_1 = require("fs");
 class addUser {
     name = 'add';
     desc = 'Adds specified user to reminder list with options to choose values';
@@ -33,8 +31,8 @@ class addUser {
     async execute(intr) {
         //let user = intr.options.getSubcommand()
         await intr.reply('Test');
-        console.log(__dirname);
-        db_1.db.exec((0, fs_1.readFileSync)(__dirname + '/sql/populate.sql').toString());
+        // console.log(__dirname)
+        // db.exec(readFileSync(__dirname + '/sql/populate.sql').toString())
     }
 }
 exports.addUser = addUser;

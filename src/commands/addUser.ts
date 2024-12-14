@@ -1,7 +1,7 @@
 import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js'
 import { Command, CommandType } from './command'
 import { db } from '../db'
-import { readFileSync } from 'fs'
+import { readFile } from 'fs'
 
 export class addUser implements Command {
   name = 'add'
@@ -46,3 +46,4 @@ export class addUser implements Command {
     // db.exec(readFileSync(__dirname + '/sql/populate.sql').toString())
   }
 }
+
