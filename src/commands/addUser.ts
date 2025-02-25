@@ -32,6 +32,8 @@ export class addUser implements Command {
         .setName('date')
         .setDescription('The day to send a reminder message')
         .setRequired(true)
+        .setMinLength(10)
+        .setMaxLength(10)
     )
     .addIntegerOption((option) =>
       option
@@ -40,10 +42,28 @@ export class addUser implements Command {
         .setRequired(true)
     )
   public async execute(intr: ChatInputCommandInteraction): Promise<void> {
-    // let user = intr.options.getUser('target')
-    // let initAmt = intr.options.getUser('init-amount')
-    // console.log(user)
+    const user = intr.options.getUser('target')
+    const initAmt = intr.options.getInteger('init-amount')
+    const rate = intr.options.getInteger('rate')
+    const date = intr.options.getString('date')
+    const freq = intr.options.getInteger('freq')
+
+
+    console.log(user)
+    console.log(date)
+
+
+    const insertQuery = `
+      INSERT INTO users (id, username, init_amount, rate, msg_date, frequency)
+      VALUES (?, ?, ?, ?, ?, ?)
+    `
+
+    let user_params = [user?.id, user, initAmt, rate, date, freq]
+    // db.run(insertQuery, user_params, (err) => {
+    //   if (err) console.log('Error inserting data:', err.message)
+    //   else console.log('User inserted')
+    // })
+
     await intr.reply('Test')
   }
 }
-

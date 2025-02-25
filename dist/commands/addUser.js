@@ -23,14 +23,16 @@ class addUser {
         .addStringOption((option) => option
         .setName('date')
         .setDescription('The day to send a reminder message')
-        .setRequired(true))
+        .setRequired(true)
+        .setMinLength(10)
+        .setMaxLength(10))
         .addIntegerOption((option) => option
         .setName('freq')
         .setDescription('The frequency in # of months to send the message')
         .setRequired(true));
     async execute(intr) {
-        let user = intr.options.getUser('target');
-        let initAmt = intr.options.getUser('init-amount');
+        const user = intr.options.getUser('target');
+        // let initAmt = intr.options.getUser('init-amount')
         console.log(user);
         await intr.reply('Test');
     }

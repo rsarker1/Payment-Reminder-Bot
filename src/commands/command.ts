@@ -5,7 +5,7 @@ type CustomCommand = SlashCommandBuilder & SlashCommandSubcommandBuilder & Slash
 export interface Command {
     name: string,
     desc: string,
-    data: any , 
+    data: any, 
     execute(intr: CommandInteraction): Promise<void>
 }
 

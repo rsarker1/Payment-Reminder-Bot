@@ -18,7 +18,6 @@ class Bot {
             console.log(`${b.user.displayName} is online.`);
         });
     }
-    // Just need a chat text listener
     registerListeners() {
         this.client.on(discord_js_1.Events.InteractionCreate, (intr) => this.onInteraction(intr));
     }
