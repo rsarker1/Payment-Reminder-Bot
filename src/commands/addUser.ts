@@ -2,6 +2,7 @@ import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js'
 import { Command, CommandType } from './command'
 import { db } from '../db'
 import { readFile } from 'fs'
+import { parse, format, isValid } from 'date-fns'
 
 export class addUser implements Command {
   name = 'add'
@@ -30,7 +31,9 @@ export class addUser implements Command {
     .addStringOption((option) =>
       option
         .setName('date')
-        .setDescription('The day to send a reminder message')
+        .setDescription(
+          'The day to send a reminder message. Format: MM-dd-yyyy'
+        )
         .setRequired(true)
         .setMinLength(10)
         .setMaxLength(10)
@@ -48,10 +51,12 @@ export class addUser implements Command {
     const date = intr.options.getString('date')
     const freq = intr.options.getInteger('freq')
 
-
     console.log(user)
     console.log(date)
-
+    if (!checkDate(date)) {
+      await intr.reply('BROKEN')
+      return
+    }
 
     const insertQuery = `
       INSERT INTO users (id, username, init_amount, rate, msg_date, frequency)
@@ -66,4 +71,14 @@ export class addUser implements Command {
 
     await intr.reply('Test')
   }
+}
+
+function checkDate(dateInput: string | null): string | null {
+  const preferred = 'MM-dd-yyyy'
+  const parsedDate = parse(dateInput!, preferred, new Date())
+  if (!isValid(parsedDate)) {
+    console.log('Error: Incorrect date format provided.')
+    return null
+  }
+  return format(parsedDate, preferred)
 }
